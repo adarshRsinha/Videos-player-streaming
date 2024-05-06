@@ -10,8 +10,10 @@ import path from 'path';
 import fs from 'fs';
 import {exec} from 'child_process';
 import { stderr, stdout } from 'process';
+import 'dotenv/config';
 
 const app = express();
+const port=process.env.PORT;
 
 //multer middleware
 const storage = multer.diskStorage({
@@ -76,7 +78,7 @@ app.post("/upload", upload.single('file'), function(req, res){
     }
     console.log(`stdout: ${stdout}`);
     console.log(`stderr: ${stderr}`);
-    const videoUrl = `http://localhost:8000/uploads/courses/${lessionId}/index.m3u8`;
+    const videoUrl = `http://localhost:${port}/uploads/courses/${lessionId}/index.m3u8`;
 
     res.json({
         message: "Videos converted to HLS format",
@@ -87,6 +89,6 @@ app.post("/upload", upload.single('file'), function(req, res){
 
 })
 
-app.listen(8000, (req, res) => {
+app.listen(port, (req, res) => {
     console.log("server is started");
 })
