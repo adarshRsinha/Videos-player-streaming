@@ -9,7 +9,7 @@ import background from './images/img1-design.jpg';
 function App() {
   const playerRef = useRef(null);
   const videoLink =
-  "http://localhost:8000/uploads/courses/91627120-2fb3-4ecb-bfee-9d0f93c252f6/index.m3u8";
+  "https://videos-player-streaming.onrender.com/uploads/courses/91627120-2fb3-4ecb-bfee-9d0f93c252f6/index.m3u8";
 
   const videoPlayerOptions = {
     controls: true,
